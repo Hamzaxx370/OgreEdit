@@ -5,6 +5,8 @@ A Yakuza 1 and 2 Heat Action (YAct) Editor Capable Of:
   
 -Editing CSV (YActPlayData) files
 
+(Horrible code btw)
+
 ## Credits
 
 Thanks to:  
