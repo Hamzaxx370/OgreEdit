@@ -13,7 +13,7 @@ Thanks to:
 
 ## Usage:  
 
-Yakuza 1:
+## Yakuza 1:
 
 -Import a CSV
 
@@ -27,7 +27,7 @@ Yakuza 1:
 
 -Export
 
-Yakuza 2:
+## Yakuza 2:
 
 -Import a YAct
 
