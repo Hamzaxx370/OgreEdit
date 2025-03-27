@@ -141,14 +141,81 @@ namespace OgreEdit.Data
             public float FrameEnd { get; set; }
             public float Speed { get; set; }
             public uint MaxLoopNum;
+            public int Flag;
         }
-        public struct LoopEnd : IEffect
+        public struct NormalBranch : IEffect
         {
             public uint ParentID { get; set; }
             public float FrameStart { get; set; }
             public float FrameEnd { get; set; }
             public float Speed { get; set; }
-            public uint Unknown;
+            public int ID;
+        }
+
+        public struct Dead1 : IEffect
+        {
+            public uint ParentID { get; set; }
+            public float FrameStart { get; set; }
+            public float FrameEnd { get; set; }
+            public float Speed { get; set; }
+            public int ID;
+        }
+
+        public struct Dead2 : IEffect
+        {
+            public uint ParentID { get; set; }
+            public float FrameStart { get; set; }
+            public float FrameEnd { get; set; }
+            public float Speed { get; set; }
+            public int ID;
+        }
+
+        public struct CounterBranch : IEffect
+        {
+            public uint ParentID { get; set; }
+            public float FrameStart { get; set; }
+            public float FrameEnd { get; set; }
+            public float Speed { get; set; }
+            public int Unknown1;
+            public int Unknown2;
+        }
+
+        public struct Finish : IEffect
+        {
+            public uint ParentID { get; set; }
+            public float FrameStart { get; set; }
+            public float FrameEnd { get; set; }
+            public float Speed { get; set; }
+        }
+
+        public struct CounterUp : IEffect
+        {
+            public uint ParentID { get; set; }
+            public float FrameStart { get; set; }
+            public float FrameEnd { get; set; }
+            public float Speed { get; set; }
+
+            public int Unknown;
+        }
+
+        public struct CounterReset : IEffect
+        {
+            public uint ParentID { get; set; }
+            public float FrameStart { get; set; }
+            public float FrameEnd { get; set; }
+            public float Speed { get; set; }
+
+            public int Unknown;
+        }
+
+        public struct ChangeFinishStatus : IEffect
+        {
+            public uint ParentID { get; set; }
+            public float FrameStart { get; set; }
+            public float FrameEnd { get; set; }
+            public float Speed { get; set; }
+
+            public int Status;
         }
         public struct ButtonTiming : IEffect
         {
@@ -156,7 +223,10 @@ namespace OgreEdit.Data
             public float FrameStart { get; set; }
             public float FrameEnd { get; set; }
             public float Speed { get; set; }
+
             public uint Button;
+
+            public int ID;
         }
         public struct ButtonSpam : IEffect
         {
@@ -166,6 +236,7 @@ namespace OgreEdit.Data
             public float Speed { get; set; }
             public ushort Button;
             public ushort Count;
+            public int ID;
         }
         public struct ScreenFlash : IEffect
         {
