@@ -53,6 +53,14 @@
             failConditionToolStripMenuItem = new ToolStripMenuItem();
             buttonWindowToolStripMenuItem = new ToolStripMenuItem();
             buttonSpamToolStripMenuItem = new ToolStripMenuItem();
+            normalBranchToolStripMenuItem = new ToolStripMenuItem();
+            counterBranchToolStripMenuItem = new ToolStripMenuItem();
+            counterUpToolStripMenuItem = new ToolStripMenuItem();
+            counterResetToolStripMenuItem = new ToolStripMenuItem();
+            changeFinishStatusToolStripMenuItem = new ToolStripMenuItem();
+            deadToolStripMenuItem = new ToolStripMenuItem();
+            dead2ToolStripMenuItem = new ToolStripMenuItem();
+            screenShakeToolStripMenuItem = new ToolStripMenuItem();
             screenFlashToolStripMenuItem = new ToolStripMenuItem();
             afterImageToolStripMenuItem = new ToolStripMenuItem();
             removeToolStripMenuItem = new ToolStripMenuItem();
@@ -65,7 +73,6 @@
             addToolStripMenuItem1 = new ToolStripMenuItem();
             removeToolStripMenuItem1 = new ToolStripMenuItem();
             comboBox1 = new ComboBox();
-            screenShakeToolStripMenuItem = new ToolStripMenuItem();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -226,7 +233,7 @@
             // 
             // addToolStripMenuItem
             // 
-            addToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { damageEffectToolStripMenuItem, soundCueToolStripMenuItem, particleToolStripMenuItem, trailToolStripMenuItem, loopToolStripMenuItem, failConditionToolStripMenuItem, buttonWindowToolStripMenuItem, buttonSpamToolStripMenuItem, screenFlashToolStripMenuItem, afterImageToolStripMenuItem, screenShakeToolStripMenuItem });
+            addToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { damageEffectToolStripMenuItem, soundCueToolStripMenuItem, particleToolStripMenuItem, trailToolStripMenuItem, loopToolStripMenuItem, failConditionToolStripMenuItem, buttonWindowToolStripMenuItem, buttonSpamToolStripMenuItem, normalBranchToolStripMenuItem, counterBranchToolStripMenuItem, counterUpToolStripMenuItem, counterResetToolStripMenuItem, changeFinishStatusToolStripMenuItem, deadToolStripMenuItem, dead2ToolStripMenuItem, screenShakeToolStripMenuItem, screenFlashToolStripMenuItem, afterImageToolStripMenuItem });
             addToolStripMenuItem.Name = "addToolStripMenuItem";
             addToolStripMenuItem.Size = new Size(180, 22);
             addToolStripMenuItem.Text = "Add";
@@ -234,66 +241,126 @@
             // damageEffectToolStripMenuItem
             // 
             damageEffectToolStripMenuItem.Name = "damageEffectToolStripMenuItem";
-            damageEffectToolStripMenuItem.Size = new Size(180, 22);
+            damageEffectToolStripMenuItem.Size = new Size(184, 22);
             damageEffectToolStripMenuItem.Text = "Damage";
             damageEffectToolStripMenuItem.Click += damageEffectToolStripMenuItem_Click;
             // 
             // soundCueToolStripMenuItem
             // 
             soundCueToolStripMenuItem.Name = "soundCueToolStripMenuItem";
-            soundCueToolStripMenuItem.Size = new Size(180, 22);
+            soundCueToolStripMenuItem.Size = new Size(184, 22);
             soundCueToolStripMenuItem.Text = "Sound Cue";
             soundCueToolStripMenuItem.Click += soundCueToolStripMenuItem_Click;
             // 
             // particleToolStripMenuItem
             // 
             particleToolStripMenuItem.Name = "particleToolStripMenuItem";
-            particleToolStripMenuItem.Size = new Size(180, 22);
+            particleToolStripMenuItem.Size = new Size(184, 22);
             particleToolStripMenuItem.Text = "Particle";
             particleToolStripMenuItem.Click += particleToolStripMenuItem_Click;
             // 
             // trailToolStripMenuItem
             // 
             trailToolStripMenuItem.Name = "trailToolStripMenuItem";
-            trailToolStripMenuItem.Size = new Size(180, 22);
+            trailToolStripMenuItem.Size = new Size(184, 22);
             trailToolStripMenuItem.Text = "Trail";
             trailToolStripMenuItem.Click += trailToolStripMenuItem_Click;
             // 
             // loopToolStripMenuItem
             // 
             loopToolStripMenuItem.Name = "loopToolStripMenuItem";
-            loopToolStripMenuItem.Size = new Size(180, 22);
+            loopToolStripMenuItem.Size = new Size(184, 22);
             loopToolStripMenuItem.Text = "Loop";
+            loopToolStripMenuItem.Click += loopToolStripMenuItem_Click;
             // 
             // failConditionToolStripMenuItem
             // 
             failConditionToolStripMenuItem.Name = "failConditionToolStripMenuItem";
-            failConditionToolStripMenuItem.Size = new Size(180, 22);
-            failConditionToolStripMenuItem.Text = "Fail Condition";
+            failConditionToolStripMenuItem.Size = new Size(184, 22);
+            failConditionToolStripMenuItem.Text = "Finish";
+            failConditionToolStripMenuItem.Click += failConditionToolStripMenuItem_Click;
             // 
             // buttonWindowToolStripMenuItem
             // 
             buttonWindowToolStripMenuItem.Name = "buttonWindowToolStripMenuItem";
-            buttonWindowToolStripMenuItem.Size = new Size(180, 22);
+            buttonWindowToolStripMenuItem.Size = new Size(184, 22);
             buttonWindowToolStripMenuItem.Text = "Button Window";
+            buttonWindowToolStripMenuItem.Click += buttonWindowToolStripMenuItem_Click;
             // 
             // buttonSpamToolStripMenuItem
             // 
             buttonSpamToolStripMenuItem.Name = "buttonSpamToolStripMenuItem";
-            buttonSpamToolStripMenuItem.Size = new Size(180, 22);
+            buttonSpamToolStripMenuItem.Size = new Size(184, 22);
             buttonSpamToolStripMenuItem.Text = "Button Spam";
+            buttonSpamToolStripMenuItem.Click += buttonSpamToolStripMenuItem_Click;
+            // 
+            // normalBranchToolStripMenuItem
+            // 
+            normalBranchToolStripMenuItem.Name = "normalBranchToolStripMenuItem";
+            normalBranchToolStripMenuItem.Size = new Size(184, 22);
+            normalBranchToolStripMenuItem.Text = "Normal Branch";
+            normalBranchToolStripMenuItem.Click += normalBranchToolStripMenuItem_Click;
+            // 
+            // counterBranchToolStripMenuItem
+            // 
+            counterBranchToolStripMenuItem.Name = "counterBranchToolStripMenuItem";
+            counterBranchToolStripMenuItem.Size = new Size(184, 22);
+            counterBranchToolStripMenuItem.Text = "Counter Branch";
+            counterBranchToolStripMenuItem.Click += counterBranchToolStripMenuItem_Click;
+            // 
+            // counterUpToolStripMenuItem
+            // 
+            counterUpToolStripMenuItem.Name = "counterUpToolStripMenuItem";
+            counterUpToolStripMenuItem.Size = new Size(184, 22);
+            counterUpToolStripMenuItem.Text = "Counter Up";
+            counterUpToolStripMenuItem.Click += counterUpToolStripMenuItem_Click;
+            // 
+            // counterResetToolStripMenuItem
+            // 
+            counterResetToolStripMenuItem.Name = "counterResetToolStripMenuItem";
+            counterResetToolStripMenuItem.Size = new Size(184, 22);
+            counterResetToolStripMenuItem.Text = "Counter Reset";
+            counterResetToolStripMenuItem.Click += counterResetToolStripMenuItem_Click;
+            // 
+            // changeFinishStatusToolStripMenuItem
+            // 
+            changeFinishStatusToolStripMenuItem.Name = "changeFinishStatusToolStripMenuItem";
+            changeFinishStatusToolStripMenuItem.Size = new Size(184, 22);
+            changeFinishStatusToolStripMenuItem.Text = "Change Finish Status";
+            changeFinishStatusToolStripMenuItem.Click += changeFinishStatusToolStripMenuItem_Click;
+            // 
+            // deadToolStripMenuItem
+            // 
+            deadToolStripMenuItem.Name = "deadToolStripMenuItem";
+            deadToolStripMenuItem.Size = new Size(184, 22);
+            deadToolStripMenuItem.Text = "Dead 1";
+            deadToolStripMenuItem.Click += deadToolStripMenuItem_Click;
+            // 
+            // dead2ToolStripMenuItem
+            // 
+            dead2ToolStripMenuItem.Name = "dead2ToolStripMenuItem";
+            dead2ToolStripMenuItem.Size = new Size(184, 22);
+            dead2ToolStripMenuItem.Text = "Dead 2";
+            dead2ToolStripMenuItem.Click += dead2ToolStripMenuItem_Click;
+            // 
+            // screenShakeToolStripMenuItem
+            // 
+            screenShakeToolStripMenuItem.Name = "screenShakeToolStripMenuItem";
+            screenShakeToolStripMenuItem.Size = new Size(184, 22);
+            screenShakeToolStripMenuItem.Text = "Screen Shake";
+            screenShakeToolStripMenuItem.Click += screenShakeToolStripMenuItem_Click;
             // 
             // screenFlashToolStripMenuItem
             // 
             screenFlashToolStripMenuItem.Name = "screenFlashToolStripMenuItem";
-            screenFlashToolStripMenuItem.Size = new Size(180, 22);
+            screenFlashToolStripMenuItem.Size = new Size(184, 22);
             screenFlashToolStripMenuItem.Text = "Screen Flash";
             screenFlashToolStripMenuItem.Click += screenFlashToolStripMenuItem_Click;
             // 
             // afterImageToolStripMenuItem
             // 
             afterImageToolStripMenuItem.Name = "afterImageToolStripMenuItem";
-            afterImageToolStripMenuItem.Size = new Size(180, 22);
+            afterImageToolStripMenuItem.Size = new Size(184, 22);
             afterImageToolStripMenuItem.Text = "After Image";
             afterImageToolStripMenuItem.Click += afterImageToolStripMenuItem_Click;
             // 
@@ -369,13 +436,6 @@
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 7;
             // 
-            // screenShakeToolStripMenuItem
-            // 
-            screenShakeToolStripMenuItem.Name = "screenShakeToolStripMenuItem";
-            screenShakeToolStripMenuItem.Size = new Size(180, 22);
-            screenShakeToolStripMenuItem.Text = "Screen Shake";
-            screenShakeToolStripMenuItem.Click += screenShakeToolStripMenuItem_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -434,5 +494,12 @@
         private ToolStripMenuItem addToolStripMenuItem1;
         private ToolStripMenuItem removeToolStripMenuItem1;
         private ToolStripMenuItem screenShakeToolStripMenuItem;
+        private ToolStripMenuItem normalBranchToolStripMenuItem;
+        private ToolStripMenuItem counterUpToolStripMenuItem;
+        private ToolStripMenuItem counterBranchToolStripMenuItem;
+        private ToolStripMenuItem counterResetToolStripMenuItem;
+        private ToolStripMenuItem changeFinishStatusToolStripMenuItem;
+        private ToolStripMenuItem deadToolStripMenuItem;
+        private ToolStripMenuItem dead2ToolStripMenuItem;
     }
 }

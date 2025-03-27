@@ -93,9 +93,9 @@ namespace OgreEdit
             };
             return Node;
         }
-        private TreeNode AddNodeCSVEnemyY1(CSVData.Enemy Enemy , int i)
+        private TreeNode AddNodeCSVEnemyY1(CSVData.Enemy Enemy, int i)
         {
-            TreeNode Node = new TreeNode("ENEMY"+i.ToString())
+            TreeNode Node = new TreeNode("ENEMY" + i.ToString())
             {
                 Tag = Enemy
             };
@@ -151,7 +151,7 @@ namespace OgreEdit
             NodeP.Nodes.Add(Node);
         }
 
-        public TreeNode AddNodeChara(string Name, YactDataY2.CharaInfo Info,TreeNode Parent)
+        public TreeNode AddNodeChara(string Name, YactDataY2.CharaInfo Info, TreeNode Parent)
         {
             TreeNode Node = new TreeNode(Name)
             {
@@ -170,7 +170,7 @@ namespace OgreEdit
             Parent.Nodes.Add(Node);
             return Node;
         }
-        public TreeNode AddNodeCamY1(string Name, CSVData.CameraInfo Info,TreeNode NodeP)
+        public TreeNode AddNodeCamY1(string Name, CSVData.CameraInfo Info, TreeNode NodeP)
         {
             TreeNode Node = new TreeNode(Name)
             {
@@ -187,13 +187,13 @@ namespace OgreEdit
             };
             return Node;
         }
-        
+
         private void EffectHandler()
         {
             TreeNode SelectedNode = treeView1.SelectedNode;
             if (SelectedNode.Tag is Effects.IEffect GeneralData)
             {
-                
+
                 if (SelectedNode.Tag is Effects.HactEvent HE)
                 {
                     Label label = CreateLabelTitle("Event", 0, 0);
@@ -215,26 +215,26 @@ namespace OgreEdit
                     Label labelfe = CreateLabel("Frame End", 0, 3);
                     TextBox Textfe = CreateText(GeneralData.FrameEnd.ToString(), 1, 3, (NewText) =>
                     {
-                        
+
                         HE.FrameEnd = TryParseFP(NewText);
                         SelectedNode.Tag = HE;
-                        
+
                     });
 
                     Label labels = CreateLabel("Speed", 0, 4);
                     TextBox Texts = CreateText(GeneralData.Speed.ToString(), 1, 4, (NewText) =>
                     {
-                        
+
                         HE.Speed = TryParseFP(NewText);
                         SelectedNode.Tag = HE;
-                        
+
                     });
 
 
                     CreateLabel("Name", 0, 5);
                     CreateText(HE.Name.ToString(), 1, 5, (newtext) =>
                     {
-                        
+
                         HE.Name = (newtext);
                         SelectedNode.Text = (newtext);
                         SelectedNode.Tag = HE;
@@ -249,48 +249,48 @@ namespace OgreEdit
                         Label labelp = CreateLabel("Parent ID", 0, 1);
                         TextBox TextP = CreateText(GeneralData.ParentID.ToString(), 1, 1, (NewText) =>
                         {
-                            
+
                             Dmg.ParentID = TryParse32(NewText);
                             SelectedNode.Tag = Dmg;
-                            
+
                         });
 
                         Label labelfs = CreateLabel("Frame Start", 0, 2);
                         TextBox Textfs = CreateText(GeneralData.FrameStart.ToString(), 1, 2, (NewText) =>
                         {
-                            
+
                             Dmg.FrameStart = TryParseFP(NewText);
                             SelectedNode.Tag = Dmg;
-                            
+
                         });
 
                         Label labelfe = CreateLabel("Frame End", 0, 3);
                         TextBox Textfe = CreateText(GeneralData.FrameEnd.ToString(), 1, 3, (NewText) =>
                         {
-                            
+
                             Dmg.FrameEnd = TryParseFP(NewText);
                             SelectedNode.Tag = Dmg;
-                            
+
                         });
 
                         Label labels = CreateLabel("Speed", 0, 4);
                         TextBox Texts = CreateText(GeneralData.Speed.ToString(), 1, 4, (NewText) =>
                         {
-                            
+
                             Dmg.Speed = TryParseFP(NewText);
                             SelectedNode.Tag = Dmg;
-                            
+
                         });
 
 
                         Label Vald = CreateLabel("Damage Value", 0, 5);
                         TextBox Textd = CreateText(Dmg.DamageVal.ToString(), 1, 5, (NewText) =>
                         {
-                            
+
                             Dmg.DamageVal = TryParse32(NewText);
                             SelectedNode.Tag = Dmg;
                             GeneralData = Dmg;
-                            
+
                         });
 
                     }
@@ -305,37 +305,37 @@ namespace OgreEdit
                         Label labelp = CreateLabel("Parent ID", 0, 1);
                         TextBox TextP = CreateText(GeneralData.ParentID.ToString(), 1, 1, (NewText) =>
                         {
-                            
+
                             Cue.ParentID = TryParse32(NewText);
                             SelectedNode.Tag = Cue;
-                            
+
                         });
 
                         Label labelfs = CreateLabel("Frame Start", 0, 2);
                         TextBox Textfs = CreateText(GeneralData.FrameStart.ToString(), 1, 2, (NewText) =>
                         {
-                            
+
                             Cue.FrameStart = TryParseFP(NewText);
                             SelectedNode.Tag = Cue;
-                            
+
                         });
 
                         Label labelfe = CreateLabel("Frame End", 0, 3);
                         TextBox Textfe = CreateText(GeneralData.FrameEnd.ToString(), 1, 3, (NewText) =>
                         {
-                            
+
                             Cue.FrameEnd = TryParseFP(NewText);
                             SelectedNode.Tag = Cue;
-                            
+
                         });
 
                         Label labels = CreateLabel("Speed", 0, 4);
                         TextBox Texts = CreateText(GeneralData.Speed.ToString(), 1, 4, (NewText) =>
                         {
-                            
+
                             Cue.Speed = TryParseFP(NewText);
                             SelectedNode.Tag = Cue;
-                            
+
                         });
 
                         Label labelb = CreateLabel("Bone Number", 0, 5);
@@ -345,7 +345,7 @@ namespace OgreEdit
                             Cue.BoneNumber = TryParse32(NewText);
                             SelectedNode.Tag = Cue;
                             GeneralData = Cue;
-                            ChangeEffect(SelectedNode, GeneralData,OG);
+                            ChangeEffect(SelectedNode, GeneralData, OG);
                         });
 
                         Label labelc = CreateLabel("Container ID", 0, 6);
@@ -355,7 +355,7 @@ namespace OgreEdit
                             Cue.ContainerID = TryParse16(NewText);
                             SelectedNode.Tag = Cue;
                             GeneralData = Cue;
-                            ChangeEffect(SelectedNode, GeneralData,OG);
+                            ChangeEffect(SelectedNode, GeneralData, OG);
                         });
 
                         Label labelv = CreateLabel("Voice ID", 0, 7);
@@ -365,7 +365,7 @@ namespace OgreEdit
                             Cue.VoiceID = TryParse16(NewText);
                             SelectedNode.Tag = Cue;
                             GeneralData = Cue;
-                            ChangeEffect(SelectedNode, GeneralData,OG);
+                            ChangeEffect(SelectedNode, GeneralData, OG);
                         });
                     }
 
@@ -419,7 +419,7 @@ namespace OgreEdit
                             PTCL.BoneNumber = TryParse32(NewText);
                             SelectedNode.Tag = PTCL;
                             GeneralData = PTCL;
-                            ChangeEffect(SelectedNode, GeneralData,OG);
+                            ChangeEffect(SelectedNode, GeneralData, OG);
                         });
 
                         Label labelpt = CreateLabel("PTCL ID", 0, 6);
@@ -429,7 +429,7 @@ namespace OgreEdit
                             PTCL.ptclID = TryParse32(NewText);
                             SelectedNode.Tag = PTCL;
                             GeneralData = PTCL;
-                            ChangeEffect(SelectedNode, GeneralData,OG);
+                            ChangeEffect(SelectedNode, GeneralData, OG);
                         });
 
                         Label labelpr1 = CreateLabel("PTCL Parameter 1", 0, 7);
@@ -728,11 +728,11 @@ namespace OgreEdit
                     }
 
                 }
-                else if (SelectedNode.Text == "Fail Condition Effect")
+                else if (SelectedNode.Text == "Normal Branch Effect")
                 {
-                    if (SelectedNode.Tag is Effects.LoopEnd LoopE)
+                    if (SelectedNode.Tag is Effects.NormalBranch LoopE)
                     {
-                        Label label = CreateLabelTitle("Fail", 0, 0);
+                        Label label = CreateLabelTitle("Branch", 0, 0);
 
                         Label labelp = CreateLabel("Parent ID", 0, 1);
                         TextBox TextP = CreateText(GeneralData.ParentID.ToString(), 1, 1, (NewText) =>
@@ -770,11 +770,11 @@ namespace OgreEdit
                             ChangeEffect(SelectedNode, GeneralData, OG);
                         });
 
-                        Label Valu = CreateLabel("Unknown", 0, 5);
-                        TextBox Textu = CreateText(LoopE.Unknown.ToString(), 1, 5, (NewText) =>
+                        Label Valu = CreateLabel("ID", 0, 5);
+                        TextBox Textu = CreateText(LoopE.ID.ToString(), 1, 5, (NewText) =>
                         {
                             var OG = GeneralData;
-                            LoopE.Unknown = TryParse32(NewText);
+                            LoopE.ID = TryParseS32(NewText);
                             SelectedNode.Tag = LoopE;
                             GeneralData = LoopE;
                             ChangeEffect(SelectedNode, GeneralData, OG);
@@ -784,6 +784,334 @@ namespace OgreEdit
                     }
 
                 }
+                else if (SelectedNode.Text == "Counter Branch Effect")
+                {
+                    if (SelectedNode.Tag is Effects.CounterBranch LoopE)
+                    {
+                        Label label = CreateLabelTitle("Branch", 0, 0);
+
+                        Label labelp = CreateLabel("Parent ID", 0, 1);
+                        TextBox TextP = CreateText(GeneralData.ParentID.ToString(), 1, 1, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.ParentID = TryParse32(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labelfs = CreateLabel("Frame Start", 0, 2);
+                        TextBox Textfs = CreateText(GeneralData.FrameStart.ToString(), 1, 2, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.FrameStart = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labelfe = CreateLabel("Frame End", 0, 3);
+                        TextBox Textfe = CreateText(GeneralData.FrameEnd.ToString(), 1, 3, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.FrameEnd = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labels = CreateLabel("Speed", 0, 4);
+                        TextBox Texts = CreateText(GeneralData.Speed.ToString(), 1, 4, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.Speed = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label Valu1 = CreateLabel("Unknown 1", 0, 5);
+                        TextBox Textu1 = CreateText(LoopE.Unknown1.ToString(), 1, 5, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.Unknown1 = TryParseS32(NewText);
+                            SelectedNode.Tag = LoopE;
+                            GeneralData = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label Valu2 = CreateLabel("Unknown 2", 0, 6);
+                        TextBox Textu2 = CreateText(LoopE.Unknown2.ToString(), 1, 6, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.Unknown2 = TryParseS32(NewText);
+                            SelectedNode.Tag = LoopE;
+                            GeneralData = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+                    }
+
+                }
+                else if (SelectedNode.Text == "Finish Effect")
+                {
+                    if (SelectedNode.Tag is Effects.Finish LoopE)
+                    {
+                        Label label = CreateLabelTitle("Finish", 0, 0);
+
+                        Label labelp = CreateLabel("Parent ID", 0, 1);
+                        TextBox TextP = CreateText(GeneralData.ParentID.ToString(), 1, 1, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.ParentID = TryParse32(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labelfs = CreateLabel("Frame Start", 0, 2);
+                        TextBox Textfs = CreateText(GeneralData.FrameStart.ToString(), 1, 2, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.FrameStart = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labelfe = CreateLabel("Frame End", 0, 3);
+                        TextBox Textfe = CreateText(GeneralData.FrameEnd.ToString(), 1, 3, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.FrameEnd = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labels = CreateLabel("Speed", 0, 4);
+                        TextBox Texts = CreateText(GeneralData.Speed.ToString(), 1, 4, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.Speed = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                    }
+
+                }
+                else if (SelectedNode.Text == "Counter Up Effect")
+                {
+                    if (SelectedNode.Tag is Effects.CounterUp LoopE)
+                    {
+                        Label label = CreateLabelTitle("Counter Up", 0, 0);
+
+                        Label labelp = CreateLabel("Parent ID", 0, 1);
+                        TextBox TextP = CreateText(GeneralData.ParentID.ToString(), 1, 1, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.ParentID = TryParse32(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labelfs = CreateLabel("Frame Start", 0, 2);
+                        TextBox Textfs = CreateText(GeneralData.FrameStart.ToString(), 1, 2, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.FrameStart = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labelfe = CreateLabel("Frame End", 0, 3);
+                        TextBox Textfe = CreateText(GeneralData.FrameEnd.ToString(), 1, 3, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.FrameEnd = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labels = CreateLabel("Speed", 0, 4);
+                        TextBox Texts = CreateText(GeneralData.Speed.ToString(), 1, 4, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.Speed = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label Valu1 = CreateLabel("Unknown", 0, 5);
+                        TextBox Textu1 = CreateText(LoopE.Unknown.ToString(), 1, 5, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.Unknown = TryParseS32(NewText);
+                            SelectedNode.Tag = LoopE;
+                            GeneralData = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+                    }
+
+                }
+                else if (SelectedNode.Text == "Counter Reset Effect")
+                {
+                    if (SelectedNode.Tag is Effects.CounterReset LoopE)
+                    {
+                        Label label = CreateLabelTitle("Reset", 0, 0);
+
+                        Label labelp = CreateLabel("Parent ID", 0, 1);
+                        TextBox TextP = CreateText(GeneralData.ParentID.ToString(), 1, 1, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.ParentID = TryParse32(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labelfs = CreateLabel("Frame Start", 0, 2);
+                        TextBox Textfs = CreateText(GeneralData.FrameStart.ToString(), 1, 2, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.FrameStart = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labelfe = CreateLabel("Frame End", 0, 3);
+                        TextBox Textfe = CreateText(GeneralData.FrameEnd.ToString(), 1, 3, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.FrameEnd = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labels = CreateLabel("Speed", 0, 4);
+                        TextBox Texts = CreateText(GeneralData.Speed.ToString(), 1, 4, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.Speed = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label Valu1 = CreateLabel("Unknown", 0, 5);
+                        TextBox Textu1 = CreateText(LoopE.Unknown.ToString(), 1, 5, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.Unknown = TryParseS32(NewText);
+                            SelectedNode.Tag = LoopE;
+                            GeneralData = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                    }
+
+                }
+                else if (SelectedNode.Text == "Dead Effect 1")
+                {
+                    if (SelectedNode.Tag is Effects.Dead1 LoopE)
+                    {
+                        Label label = CreateLabelTitle("Dead", 0, 0);
+
+                        Label labelp = CreateLabel("Parent ID", 0, 1);
+                        TextBox TextP = CreateText(GeneralData.ParentID.ToString(), 1, 1, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.ParentID = TryParse32(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labelfs = CreateLabel("Frame Start", 0, 2);
+                        TextBox Textfs = CreateText(GeneralData.FrameStart.ToString(), 1, 2, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.FrameStart = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labelfe = CreateLabel("Frame End", 0, 3);
+                        TextBox Textfe = CreateText(GeneralData.FrameEnd.ToString(), 1, 3, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.FrameEnd = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labels = CreateLabel("Speed", 0, 4);
+                        TextBox Texts = CreateText(GeneralData.Speed.ToString(), 1, 4, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.Speed = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label Valu1 = CreateLabel("ID", 0, 5);
+                        TextBox Textu1 = CreateText(LoopE.ID.ToString(), 1, 5, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.ID = TryParseS32(NewText);
+                            SelectedNode.Tag = LoopE;
+                            GeneralData = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+                    }
+
+                }
+
+                else if (SelectedNode.Text == "Dead Effect 2")
+                {
+                    if (SelectedNode.Tag is Effects.Dead2 LoopE)
+                    {
+                        Label label = CreateLabelTitle("Dead", 0, 0);
+
+                        Label labelp = CreateLabel("Parent ID", 0, 1);
+                        TextBox TextP = CreateText(GeneralData.ParentID.ToString(), 1, 1, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.ParentID = TryParse32(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labelfs = CreateLabel("Frame Start", 0, 2);
+                        TextBox Textfs = CreateText(GeneralData.FrameStart.ToString(), 1, 2, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.FrameStart = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labelfe = CreateLabel("Frame End", 0, 3);
+                        TextBox Textfe = CreateText(GeneralData.FrameEnd.ToString(), 1, 3, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.FrameEnd = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label labels = CreateLabel("Speed", 0, 4);
+                        TextBox Texts = CreateText(GeneralData.Speed.ToString(), 1, 4, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.Speed = TryParseFP(NewText);
+                            SelectedNode.Tag = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+
+                        Label Valu1 = CreateLabel("ID", 0, 5);
+                        TextBox Textu1 = CreateText(LoopE.ID.ToString(), 1, 5, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            LoopE.ID = TryParseS32(NewText);
+                            SelectedNode.Tag = LoopE;
+                            GeneralData = LoopE;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+                    }
+
+                }
+
                 else if (SelectedNode.Text == "Button Window Effect")
                 {
                     if (SelectedNode.Tag is Effects.ButtonTiming ButtonW)
@@ -831,6 +1159,15 @@ namespace OgreEdit
                         {
                             var OG = GeneralData;
                             ButtonW.Button = TryParse32(NewText);
+                            SelectedNode.Tag = ButtonW;
+                            GeneralData = ButtonW;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+                        Label Vali = CreateLabel("ID", 0, 6);
+                        TextBox Texti = CreateText(ButtonW.ID.ToString(), 1, 6, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            ButtonW.ID = TryParseS32(NewText);
                             SelectedNode.Tag = ButtonW;
                             GeneralData = ButtonW;
                             ChangeEffect(SelectedNode, GeneralData, OG);
@@ -894,6 +1231,15 @@ namespace OgreEdit
                         {
                             var OG = GeneralData;
                             ButtonS.Count = TryParse16(NewText);
+                            SelectedNode.Tag = ButtonS;
+                            GeneralData = ButtonS;
+                            ChangeEffect(SelectedNode, GeneralData, OG);
+                        });
+                        Label Vali = CreateLabel("ID", 0, 7);
+                        TextBox Texti = CreateText(ButtonS.ID.ToString(), 1, 7, (NewText) =>
+                        {
+                            var OG = GeneralData;
+                            ButtonS.ID = TryParseS32(NewText);
                             SelectedNode.Tag = ButtonS;
                             GeneralData = ButtonS;
                             ChangeEffect(SelectedNode, GeneralData, OG);
@@ -1124,7 +1470,7 @@ namespace OgreEdit
                             AImage.RGBA.Alpha = TryParse8(NewText);
                             SelectedNode.Tag = AImage;
                             GeneralData = AImage;
-                            ChangeEffect(SelectedNode, GeneralData,OG);
+                            ChangeEffect(SelectedNode, GeneralData, OG);
                         });
 
 
@@ -1180,7 +1526,7 @@ namespace OgreEdit
                             Vib.Vibration1 = TryParse32(NewText);
                             SelectedNode.Tag = Vib;
                             GeneralData = Vib;
-                            ChangeEffect(SelectedNode, GeneralData,OG);
+                            ChangeEffect(SelectedNode, GeneralData, OG);
                         });
 
                         Label Valv2 = CreateLabel("Rotor 2", 0, 6);
@@ -1190,7 +1536,7 @@ namespace OgreEdit
                             Vib.Vibration2 = TryParse32(NewText);
                             SelectedNode.Tag = Vib;
                             GeneralData = Vib;
-                            ChangeEffect(SelectedNode, GeneralData,OG);
+                            ChangeEffect(SelectedNode, GeneralData, OG);
                         });
 
 
@@ -1214,11 +1560,11 @@ namespace OgreEdit
                     }
                 }
             }
-            
+
         }
         private void ChangeEffect(TreeNode SelectedNode, Effects.IEffect GeneralData, Effects.IEffect OG)
         {
-            
+
         }
         private void SelectHandler(object sender, TreeViewEventArgs e)
         {
@@ -1303,7 +1649,7 @@ namespace OgreEdit
                     SelectedNode.Tag = Prop;
                     PropData.PropData[Index] = Prop;
                 };
-                tableLayoutPanel1.Controls.Add(Hitbx,1,4);
+                tableLayoutPanel1.Controls.Add(Hitbx, 1, 4);
                 tableLayoutPanel1.ResumeLayout();
             }
             else if (SelectedNode.Tag is CSVDataY2.EFFECT_DAMAGE DMG)
@@ -1570,7 +1916,7 @@ namespace OgreEdit
             {
                 Label Header = CreateLabelTitle("Player", 0, 0);
                 Label labelc = CreateLabel("Condition", 0, 1);
-                TextBox Textc = CreateText(Player.Condition.ToString(), 1, 1 ,(NewText)=>
+                TextBox Textc = CreateText(Player.Condition.ToString(), 1, 1, (NewText) =>
                     {
                         if (SelectedNode.Parent.Parent.Text == "Category 1")
                         {
@@ -1722,8 +2068,9 @@ namespace OgreEdit
             }
             else if (SelectedNode.Tag is CSVData.Anim Anim)
             {
+                tableLayoutPanel1.SuspendLayout();
                 Label Header = CreateLabelTitle("Animation", 0, 0);
-                Label labelfs = CreateLabel("Frame Start",0,1);
+                Label labelfs = CreateLabel("Frame Start", 0, 1);
                 TextBox Textfs = CreateText(Anim.FrameStart.ToString(), 1, 1, (NewText) =>
                 {
                     if (SelectedNode.Parent.Parent.Parent.Text == "Category 1")
@@ -2446,6 +2793,7 @@ namespace OgreEdit
                         }
                     }
                 };
+                tableLayoutPanel1.ResumeLayout();
             }
         }
 
@@ -2598,7 +2946,7 @@ namespace OgreEdit
 
         }
 
-        private void AddEffectToParent(TreeNode Node,Effects.IEffect Effect)
+        private void AddEffectToParent(TreeNode Node, Effects.IEffect Effect)
         {
             if (treeView1.SelectedNode != null)
             {
@@ -2669,7 +3017,7 @@ namespace OgreEdit
                             treeView1.SelectedNode.Nodes.Add(Node);
                         }
                     }
-                    
+
                 }
                 else if (treeView1.SelectedNode.Tag is CSVData.Object Object)
                 {
@@ -2868,9 +3216,37 @@ namespace OgreEdit
                                             {
                                                 ENode = AddNodeEffect("Loop Effect", Loop);
                                             }
-                                            else if (Effect is Effects.LoopEnd LoopE)
+                                            else if (Effect is Effects.NormalBranch LoopE)
                                             {
-                                                ENode = AddNodeEffect("Fail Condition Effect", LoopE);
+                                                ENode = AddNodeEffect("Normal Branch Effect", LoopE);
+                                            }
+                                            else if (Effect is Effects.CounterBranch CBranch)
+                                            {
+                                                ENode = AddNodeEffect("Counter Branch Effect", CBranch);
+                                            }
+                                            else if (Effect is Effects.CounterUp CUp)
+                                            {
+                                                ENode = AddNodeEffect("Counter Up Effect", CUp);
+                                            }
+                                            else if (Effect is Effects.CounterReset CReset)
+                                            {
+                                                ENode = AddNodeEffect("Counter Reset Effect", CReset);
+                                            }
+                                            else if (Effect is Effects.Finish Finish)
+                                            {
+                                                ENode = AddNodeEffect("Finish Effect", Finish);
+                                            }
+                                            else if (Effect is Effects.Dead1 Dead)
+                                            {
+                                                ENode = AddNodeEffect("Dead Effect 1", Dead);
+                                            }
+                                            else if (Effect is Effects.Dead2 Dead2)
+                                            {
+                                                ENode = AddNodeEffect("Dead Effect 2", Dead2);
+                                            }
+                                            else if (Effect is Effects.ChangeFinishStatus CFinish)
+                                            {
+                                                ENode = AddNodeEffect("Change Finish Status Effect", CFinish);
                                             }
                                             else if (Effect is Effects.ScreenFlash ScrF)
                                             {
@@ -2928,9 +3304,37 @@ namespace OgreEdit
                                             {
                                                 ENode = AddNodeEffect("Loop Effect", Loop);
                                             }
-                                            else if (Effect is Effects.LoopEnd LoopE)
+                                            else if (Effect is Effects.NormalBranch LoopE)
                                             {
-                                                ENode = AddNodeEffect("Fail Condition Effect", LoopE);
+                                                ENode = AddNodeEffect("Normal Branch Effect", LoopE);
+                                            }
+                                            else if (Effect is Effects.CounterBranch CBranch)
+                                            {
+                                                ENode = AddNodeEffect("Counter Branch Effect", CBranch);
+                                            }
+                                            else if (Effect is Effects.CounterUp CUp)
+                                            {
+                                                ENode = AddNodeEffect("Counter Up Effect", CUp);
+                                            }
+                                            else if (Effect is Effects.CounterReset CReset)
+                                            {
+                                                ENode = AddNodeEffect("Counter Reset Effect", CReset);
+                                            }
+                                            else if (Effect is Effects.Finish Finish)
+                                            {
+                                                ENode = AddNodeEffect("Finish Effect", Finish);
+                                            }
+                                            else if (Effect is Effects.Dead1 Dead)
+                                            {
+                                                ENode = AddNodeEffect("Dead Effect 1", Dead);
+                                            }
+                                            else if (Effect is Effects.Dead2 Dead2)
+                                            {
+                                                ENode = AddNodeEffect("Dead Effect 2", Dead2);
+                                            }
+                                            else if (Effect is Effects.ChangeFinishStatus CFinish)
+                                            {
+                                                ENode = AddNodeEffect("Change Finish Status Effect", CFinish);
                                             }
                                             else if (Effect is Effects.ScreenFlash ScrF)
                                             {
@@ -2988,9 +3392,37 @@ namespace OgreEdit
                                             {
                                                 ENode = AddNodeEffect("Loop Effect", Loop);
                                             }
-                                            else if (Effect is Effects.LoopEnd LoopE)
+                                            else if (Effect is Effects.NormalBranch LoopE)
                                             {
-                                                ENode = AddNodeEffect("Fail Condition Effect", LoopE);
+                                                ENode = AddNodeEffect("Normal Branch Effect", LoopE);
+                                            }
+                                            else if (Effect is Effects.CounterBranch CBranch)
+                                            {
+                                                ENode = AddNodeEffect("Counter Branch Effect", CBranch);
+                                            }
+                                            else if (Effect is Effects.CounterUp CUp)
+                                            {
+                                                ENode = AddNodeEffect("Counter Up Effect", CUp);
+                                            }
+                                            else if (Effect is Effects.CounterReset CReset)
+                                            {
+                                                ENode = AddNodeEffect("Counter Reset Effect", CReset);
+                                            }
+                                            else if (Effect is Effects.Finish Finish)
+                                            {
+                                                ENode = AddNodeEffect("Finish Effect", Finish);
+                                            }
+                                            else if (Effect is Effects.Dead1 Dead)
+                                            {
+                                                ENode = AddNodeEffect("Dead Effect 1", Dead);
+                                            }
+                                            else if (Effect is Effects.Dead2 Dead2)
+                                            {
+                                                ENode = AddNodeEffect("Dead Effect 2", Dead2);
+                                            }
+                                            else if (Effect is Effects.ChangeFinishStatus CFinish)
+                                            {
+                                                ENode = AddNodeEffect("Change Finish Status Effect", CFinish);
                                             }
                                             else if (Effect is Effects.ScreenFlash ScrF)
                                             {
@@ -3048,9 +3480,37 @@ namespace OgreEdit
                                             {
                                                 ENode = AddNodeEffect("Loop Effect", Loop);
                                             }
-                                            else if (Effect is Effects.LoopEnd LoopE)
+                                            else if (Effect is Effects.NormalBranch LoopE)
                                             {
-                                                ENode = AddNodeEffect("Fail Condition Effect", LoopE);
+                                                ENode = AddNodeEffect("Normal Branch Effect", LoopE);
+                                            }
+                                            else if (Effect is Effects.CounterBranch CBranch)
+                                            {
+                                                ENode = AddNodeEffect("Counter Branch Effect", CBranch);
+                                            }
+                                            else if (Effect is Effects.CounterUp CUp)
+                                            {
+                                                ENode = AddNodeEffect("Counter Up Effect", CUp);
+                                            }
+                                            else if (Effect is Effects.CounterReset CReset)
+                                            {
+                                                ENode = AddNodeEffect("Counter Reset Effect", CReset);
+                                            }
+                                            else if (Effect is Effects.Finish Finish)
+                                            {
+                                                ENode = AddNodeEffect("Finish Effect", Finish);
+                                            }
+                                            else if (Effect is Effects.Dead1 Dead)
+                                            {
+                                                ENode = AddNodeEffect("Dead Effect 1", Dead);
+                                            }
+                                            else if (Effect is Effects.Dead2 Dead2)
+                                            {
+                                                ENode = AddNodeEffect("Dead Effect 2", Dead2);
+                                            }
+                                            else if (Effect is Effects.ChangeFinishStatus CFinish)
+                                            {
+                                                ENode = AddNodeEffect("Change Finish Status Effect", CFinish);
                                             }
                                             else if (Effect is Effects.ScreenFlash ScrF)
                                             {
@@ -3108,9 +3568,37 @@ namespace OgreEdit
                                             {
                                                 ENode = AddNodeEffect("Loop Effect", Loop);
                                             }
-                                            else if (Effect is Effects.LoopEnd LoopE)
+                                            else if (Effect is Effects.NormalBranch LoopE)
                                             {
-                                                ENode = AddNodeEffect("Fail Condition Effect", LoopE);
+                                                ENode = AddNodeEffect("Normal Branch Effect", LoopE);
+                                            }
+                                            else if (Effect is Effects.CounterBranch CBranch)
+                                            {
+                                                ENode = AddNodeEffect("Counter Branch Effect", CBranch);
+                                            }
+                                            else if (Effect is Effects.CounterUp CUp)
+                                            {
+                                                ENode = AddNodeEffect("Counter Up Effect", CUp);
+                                            }
+                                            else if (Effect is Effects.CounterReset CReset)
+                                            {
+                                                ENode = AddNodeEffect("Counter Reset Effect", CReset);
+                                            }
+                                            else if (Effect is Effects.Finish Finish)
+                                            {
+                                                ENode = AddNodeEffect("Finish Effect", Finish);
+                                            }
+                                            else if (Effect is Effects.Dead1 Dead)
+                                            {
+                                                ENode = AddNodeEffect("Dead Effect 1", Dead);
+                                            }
+                                            else if (Effect is Effects.Dead2 Dead2)
+                                            {
+                                                ENode = AddNodeEffect("Dead Effect 2", Dead2);
+                                            }
+                                            else if (Effect is Effects.ChangeFinishStatus CFinish)
+                                            {
+                                                ENode = AddNodeEffect("Change Finish Status Effect", CFinish);
                                             }
                                             else if (Effect is Effects.ScreenFlash ScrF)
                                             {
@@ -3147,14 +3635,14 @@ namespace OgreEdit
                     }
                     if (comboBox1.SelectedIndex == 0)
                     {
-                        
+
                     }
                     else if (comboBox1.SelectedIndex == 1)
                     {
                         TreeNode YActNode = AddNodeYActCategory("YAct");
                         foreach (YactDataY2.CharaInfo Chara in DataY2.CharaInfos)
                         {
-                            TreeNode Node = AddNodeChara(Chara.Name, Chara,YActNode);
+                            TreeNode Node = AddNodeChara(Chara.Name, Chara, YActNode);
                             foreach (YactDataY2.CamCharaInfoEntry Info in Chara.Info)
                             {
                                 AddNodeAnim("Animation", Info, Node);
@@ -3190,9 +3678,9 @@ namespace OgreEdit
                                 {
                                     ENode = AddNodeEffect("Loop Effect", Loop);
                                 }
-                                else if (Effect is Effects.LoopEnd LoopE)
+                                else if (Effect is Effects.NormalBranch LoopE)
                                 {
-                                    ENode = AddNodeEffect("Fail Condition Effect", LoopE);
+                                    ENode = AddNodeEffect("Normal Branch Effect", LoopE);
                                 }
                                 else if (Effect is Effects.ScreenFlash ScrF)
                                 {
@@ -3219,7 +3707,7 @@ namespace OgreEdit
                         }
                         foreach (YactDataY2.CameraInfo Camera in DataY2.CamInfos)
                         {
-                            TreeNode Node = AddNodeCam("Camera", Camera,YActNode);
+                            TreeNode Node = AddNodeCam("Camera", Camera, YActNode);
                             treeView1.SelectedNode = treeView1.Nodes[treeView1.Nodes.Count - 1];
                             foreach (YactDataY2.CamCharaInfoEntry Info in Camera.Info)
                             {
@@ -3256,9 +3744,9 @@ namespace OgreEdit
                                 {
                                     ENode = AddNodeEffect("Loop Effect", Loop);
                                 }
-                                else if (Effect is Effects.LoopEnd LoopE)
+                                else if (Effect is Effects.NormalBranch LoopE)
                                 {
-                                    ENode = AddNodeEffect("Fail Condition Effect", LoopE);
+                                    ENode = AddNodeEffect("Normal Branch Effect", LoopE);
                                 }
                                 else if (Effect is Effects.ScreenFlash ScrF)
                                 {
@@ -3283,7 +3771,7 @@ namespace OgreEdit
                                 Node.Nodes.Add(ENode);
                             }
                         }
-                    }   
+                    }
                 }
             }
         }
@@ -3310,6 +3798,9 @@ namespace OgreEdit
                             }
                             TreeNode Node = treeView1.SelectedNode;
                             tableLayoutPanel1.Controls.Clear();
+                            Data.OMTs.Clear();
+                            Data.MTBWs.Clear();
+                            Data.Effects.Clear();
                             Write.WriteNewYact(Data, ref YAct, ref Node);
                             if (treeView1.SelectedNode.Parent.Text == "Category 1")
                             {
@@ -3334,7 +3825,7 @@ namespace OgreEdit
                         Write.WriteYact(ref DataY2, ref Data, treeView1.SelectedNode);
                     }
                 }
-                        
+
             }
 
 
@@ -3537,7 +4028,7 @@ namespace OgreEdit
                         CSVData.Category1.Clear();
                         CSVData.Category2.Clear();
                         ReadCSV Reader = new ReadCSV();
-                        Reader.ReadCSVFile(path,CSVData);
+                        Reader.ReadCSVFile(path, CSVData);
                         TreeNode C1 = AddNodeYActCategory("Category 1");
                         TreeNode C2 = AddNodeYActCategory("Category 2");
                         foreach (CSVData.YAct YAct in CSVData.Category1)
@@ -3553,12 +4044,12 @@ namespace OgreEdit
                                     AddNodeAnimY1("Animation", Info, PNode);
                                 }
                             }
-                            
-                            
+
+
                             int i = 0;
                             foreach (CSVData.Enemy Enemy in YAct.Enemies)
                             {
-                                TreeNode ENode = AddNodeCSVEnemyY1(Enemy,i);
+                                TreeNode ENode = AddNodeCSVEnemyY1(Enemy, i);
                                 foreach (CSVData.Anim Info in Enemy.Info)
                                 {
                                     AddNodeAnimY1("Animation", Info, ENode);
@@ -3622,8 +4113,8 @@ namespace OgreEdit
                                     AddNodeAnimY1("Animation", Info, PNode);
                                 }
                             }
-                            
-                            
+
+
                             int i = 0;
                             foreach (CSVData.Enemy Enemy in YAct.Enemies)
                             {
@@ -3797,6 +4288,163 @@ namespace OgreEdit
             };
             AddNodeEffect("Screen Shake Effect", ScrShk);
             Data.Effects.Add(ScrShk);
+        }
+
+        private void buttonSpamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Effects.ButtonSpam Dmg = new Effects.ButtonSpam
+            {
+                FrameStart = 0,
+                FrameEnd = 0,
+                ID = 0,
+                ParentID = 0,
+                Speed = 1,
+                Button = 0,
+                Count = 8,
+            };
+            TreeNode Node = AddNodeEffect("Button Spam Effect", Dmg);
+            AddEffectToParent(Node, Dmg);
+        }
+
+        private void normalBranchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Effects.NormalBranch Dmg = new Effects.NormalBranch
+            {
+                FrameStart = 0,
+                FrameEnd = 0,
+                ID = 0,
+                ParentID = 0,
+                Speed = 1,
+            };
+            TreeNode Node = AddNodeEffect("Normal Branch Effect", Dmg);
+            AddEffectToParent(Node, Dmg);
+        }
+
+        private void counterUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Effects.CounterUp Dmg = new Effects.CounterUp
+            {
+                FrameStart = 0,
+                FrameEnd = 0,
+                Unknown = 0,
+                ParentID = 0,
+                Speed = 1,
+            };
+            TreeNode Node = AddNodeEffect("Counter Up Effect", Dmg);
+            AddEffectToParent(Node, Dmg);
+        }
+
+        private void counterBranchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Effects.CounterBranch Dmg = new Effects.CounterBranch
+            {
+                FrameStart = 0,
+                FrameEnd = 0,
+                Unknown1 = 0,
+                Unknown2 = 2,
+                ParentID = 0,
+                Speed = 1,
+            };
+            TreeNode Node = AddNodeEffect("Counter Branch Effect", Dmg);
+            AddEffectToParent(Node, Dmg);
+        }
+
+        private void counterResetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Effects.CounterReset Dmg = new Effects.CounterReset
+            {
+                FrameStart = 0,
+                FrameEnd = 0,
+                Unknown = 0,
+                ParentID = 0,
+                Speed = 1,
+            };
+            TreeNode Node = AddNodeEffect("Counter Reset Effect", Dmg);
+            AddEffectToParent(Node, Dmg);
+        }
+
+        private void changeFinishStatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Effects.ChangeFinishStatus Dmg = new Effects.ChangeFinishStatus
+            {
+                FrameStart = 0,
+                FrameEnd = 0,
+                Status = 0,
+                ParentID = 0,
+                Speed = 1,
+            };
+            TreeNode Node = AddNodeEffect("Change Finish Status Effect", Dmg);
+            AddEffectToParent(Node, Dmg);
+        }
+
+        private void deadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Effects.Dead1 Dmg = new Effects.Dead1
+            {
+                FrameStart = 0,
+                FrameEnd = 0,
+                ID = 0,
+                ParentID = 0,
+                Speed = 1,
+            };
+            TreeNode Node = AddNodeEffect("Dead Effect 1", Dmg);
+            AddEffectToParent(Node, Dmg);
+        }
+
+        private void dead2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Effects.Dead2 Dmg = new Effects.Dead2
+            {
+                FrameStart = 0,
+                FrameEnd = 0,
+                ID = 0,
+                ParentID = 0,
+                Speed = 1,
+            };
+            TreeNode Node = AddNodeEffect("Dead Effect 2", Dmg);
+            AddEffectToParent(Node, Dmg);
+        }
+
+        private void loopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Effects.Loop Dmg = new Effects.Loop
+            {
+                FrameStart = 0,
+                FrameEnd = 0,
+                MaxLoopNum = 10,
+                ParentID = 0,
+                Speed = 1,
+            };
+            TreeNode Node = AddNodeEffect("Loop Effect", Dmg);
+            AddEffectToParent(Node, Dmg);
+        }
+
+        private void failConditionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Effects.Finish Dmg = new Effects.Finish
+            {
+                FrameStart = 0,
+                FrameEnd = 0,
+                ParentID = 0,
+                Speed = 1,
+            };
+            TreeNode Node = AddNodeEffect("Finish Effect", Dmg);
+            AddEffectToParent(Node, Dmg);
+        }
+
+        private void buttonWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Effects.ButtonTiming Dmg = new Effects.ButtonTiming
+            {
+                FrameStart = 0,
+                FrameEnd = 0,
+                ID = 0,
+                ParentID = 0,
+                Speed = 1,
+                Button = 0,
+            };
+            TreeNode Node = AddNodeEffect("Button Window Effect", Dmg);
+            AddEffectToParent(Node, Dmg);
         }
     }
 }
