@@ -540,6 +540,8 @@ namespace OgreEdit.Readers
                                 FrameEnd = reader.ReadSingle(),
                                 Speed = reader.ReadSingle(),
                             };
+                            reader.BaseStream.Seek(Start + 76, SeekOrigin.Begin);
+                            Spam.ID = reader.ReadInt32();
                             reader.BaseStream.Seek(Start + 92, SeekOrigin.Begin);
                             Spam.Button = reader.ReadUInt16();
                             Spam.Count = reader.ReadUInt16();
@@ -554,13 +556,15 @@ namespace OgreEdit.Readers
                                 FrameEnd = reader.ReadSingle(),
                                 Speed = reader.ReadSingle(),
                             };
+                            reader.BaseStream.Seek(Start + 76, SeekOrigin.Begin);
+                            Timing.ID = reader.ReadInt16();
                             reader.BaseStream.Seek(Start + 92, SeekOrigin.Begin);
                             Timing.Button = reader.ReadUInt16();
                             Data.Effects.Add(Timing);
                             Effect = Timing;
                             break;
                         case 9:
-                            Effects.LoopEnd LoopEnd = new Effects.LoopEnd
+                            Effects.NormalBranch LoopEnd = new Effects.NormalBranch
                             {
                                 ParentID = reader.ReadUInt32(),
                                 FrameStart = reader.ReadSingle(),
@@ -568,9 +572,100 @@ namespace OgreEdit.Readers
                                 Speed = reader.ReadSingle(),
                             };
                             reader.BaseStream.Seek(Start + 76, SeekOrigin.Begin);
-                            LoopEnd.Unknown = reader.ReadUInt32();
+                            LoopEnd.ID = reader.ReadInt32();
                             Data.Effects.Add(LoopEnd);
                             Effect = LoopEnd;
+                            break;
+                        case 13:
+                            Effects.CounterBranch CounterBranch = new Effects.CounterBranch
+                            {
+                                ParentID = reader.ReadUInt32(),
+                                FrameStart = reader.ReadSingle(),
+                                FrameEnd = reader.ReadSingle(),
+                                Speed = reader.ReadSingle(),
+                            };
+                            reader.BaseStream.Seek(Start + 76, SeekOrigin.Begin);
+                            CounterBranch.Unknown1 = reader.ReadInt32();
+                            reader.BaseStream.Seek(Start + 92, SeekOrigin.Begin);
+                            CounterBranch.Unknown2 = reader.ReadInt32();
+                            Data.Effects.Add(CounterBranch);
+                            Effect = CounterBranch;
+                            break;
+                        case 10:
+                            Effects.Finish Finish = new Effects.Finish
+                            {
+                                ParentID = reader.ReadUInt32(),
+                                FrameStart = reader.ReadSingle(),
+                                FrameEnd = reader.ReadSingle(),
+                                Speed = reader.ReadSingle(),
+                            };
+                            Data.Effects.Add(Finish);
+                            Effect = Finish;
+                            break;
+                        case 11:
+                            Effects.CounterUp CounterUp = new Effects.CounterUp
+                            {
+                                ParentID = reader.ReadUInt32(),
+                                FrameStart = reader.ReadSingle(),
+                                FrameEnd = reader.ReadSingle(),
+                                Speed = reader.ReadSingle(),
+                            };
+                            reader.BaseStream.Seek(Start + 76, SeekOrigin.Begin);
+                            CounterUp.Unknown = reader.ReadInt32();
+                            Data.Effects.Add(CounterUp);
+                            Effect = CounterUp;
+                            break;
+                        case 12:
+                            Effects.CounterReset CounterReset = new Effects.CounterReset
+                            {
+                                ParentID = reader.ReadUInt32(),
+                                FrameStart = reader.ReadSingle(),
+                                FrameEnd = reader.ReadSingle(),
+                                Speed = reader.ReadSingle(),
+                            };
+                            reader.BaseStream.Seek(Start + 76, SeekOrigin.Begin);
+                            CounterReset.Unknown = reader.ReadInt32();
+                            Data.Effects.Add(CounterReset);
+                            Effect = CounterReset;
+                            break;
+                        case 18:
+                            Effects.ChangeFinishStatus CFinish = new Effects.ChangeFinishStatus
+                            {
+                                ParentID = reader.ReadUInt32(),
+                                FrameStart = reader.ReadSingle(),
+                                FrameEnd = reader.ReadSingle(),
+                                Speed = reader.ReadSingle(),
+                            };
+                            reader.BaseStream.Seek(Start + 76, SeekOrigin.Begin);
+                            CFinish.Status = reader.ReadInt32();
+                            Data.Effects.Add(CFinish);
+                            Effect = CFinish;
+                            break;
+                        case 16:
+                            Effects.Dead1 Dead = new Effects.Dead1
+                            {
+                                ParentID = reader.ReadUInt32(),
+                                FrameStart = reader.ReadSingle(),
+                                FrameEnd = reader.ReadSingle(),
+                                Speed = reader.ReadSingle(),
+                            };
+                            reader.BaseStream.Seek(Start + 76, SeekOrigin.Begin);
+                            Dead.ID = reader.ReadInt32();
+                            Data.Effects.Add(Dead);
+                            Effect = Dead;
+                            break;
+                        case 17:
+                            Effects.Dead2 Dead2 = new Effects.Dead2
+                            {
+                                ParentID = reader.ReadUInt32(),
+                                FrameStart = reader.ReadSingle(),
+                                FrameEnd = reader.ReadSingle(),
+                                Speed = reader.ReadSingle(),
+                            };
+                            reader.BaseStream.Seek(Start + 76, SeekOrigin.Begin);
+                            Dead2.ID = reader.ReadInt32();
+                            Data.Effects.Add(Dead2);
+                            Effect = Dead2;
                             break;
                     }
                     break;
