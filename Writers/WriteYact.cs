@@ -168,6 +168,7 @@ namespace OgreEdit.Writers
                             Chara.Add(Effect);
                             EffectCount++;
                         }
+                        Player.Info.Clear();
                         for (int e = 0; e < Node.Nodes.Count; e++)
                         {
                             TreeNode Child = Node.Nodes[e];
@@ -177,7 +178,7 @@ namespace OgreEdit.Writers
                                 Anim.AnimID = (uint)AnimCount;
                                 Data.OMTs.Add(Anim.AnimationForYAct);
                                 Child.Tag = Anim;
-                                Player.Info[AIndex] = Anim;
+                                Player.Info.Add(Anim);
                                 AnimCount++;
                             }
                         }
@@ -201,6 +202,7 @@ namespace OgreEdit.Writers
                             Chara.Add(Effect);
                             EffectCount++;
                         }
+                        Enemy.Info.Clear();
                         for (int e = 0; e < Node.Nodes.Count; e++)
                         {
                             TreeNode Child = Node.Nodes[e];
@@ -210,7 +212,7 @@ namespace OgreEdit.Writers
                                 Anim.AnimID = (uint)AnimCount;
                                 Data.OMTs.Add(Anim.AnimationForYAct);
                                 Child.Tag = Anim;
-                                Enemy.Info[AIndex] = Anim;
+                                Enemy.Info.Add(Anim);
                                 AnimCount++;
                             }
                         }
@@ -234,6 +236,7 @@ namespace OgreEdit.Writers
                             Chara.Add(Effect);
                             EffectCount++;
                         }
+                        Object.Info.Clear();
                         for (int e = 0; e < Node.Nodes.Count; e++)
                         {
                             TreeNode Child = Node.Nodes[e];
@@ -243,7 +246,7 @@ namespace OgreEdit.Writers
                                 Anim.AnimID = (uint)AnimCount;
                                 Data.OMTs.Add(Anim.AnimationForYAct);
                                 Child.Tag = Anim;
-                                Object.Info[AIndex] = Anim;
+                                Object.Info.Add(Anim);
                                 AnimCount++;
                             }
                         }
@@ -252,7 +255,7 @@ namespace OgreEdit.Writers
                         break;
                     case Arm Arm:
                         int ArmInx = YActNodeTag.Arms.IndexOf(Arm);
-                        
+                        Arm.Info.Clear();
                         for (int e = 0; e < Node.Nodes.Count; e++)
                         {
                             TreeNode Child = Node.Nodes[e];
@@ -262,7 +265,7 @@ namespace OgreEdit.Writers
                                 Anim.AnimID = (uint)AnimCount;
                                 Data.OMTs.Add(Anim.AnimationForYAct);
                                 Child.Tag = Anim;
-                                Arm.Info[AIndex] = Anim;
+                                Arm.Info.Add(Anim);
                                 AnimCount++;
                             }
                         }
@@ -286,6 +289,7 @@ namespace OgreEdit.Writers
                             Chara.Add(Effect);
                             EffectCount++;
                         }
+                        Model.Info.Clear();
                         for (int e = 0; e < Node.Nodes.Count; e++)
                         {
                             TreeNode Child = Node.Nodes[e];
@@ -295,7 +299,7 @@ namespace OgreEdit.Writers
                                 Anim.AnimID = (uint)AnimCount;
                                 Data.OMTs.Add(Anim.AnimationForYAct);
                                 Child.Tag = Anim;
-                                Model.Info[AIndex] = Anim;
+                                Model.Info.Add(Anim);
                                 AnimCount++;
                             }
                         }
@@ -319,6 +323,7 @@ namespace OgreEdit.Writers
                             Cam.Add(Effect);
                             EffectCount++;
                         }
+                        Camera.Info.Clear();
                         for (int e = 0; e < Node.Nodes.Count; e++)
                         {
                             TreeNode Child = Node.Nodes[e];
@@ -328,7 +333,7 @@ namespace OgreEdit.Writers
                                 Anim.AnimID = (uint)CamCount;
                                 Data.MTBWs.Add(Anim.AnimationForYAct);
                                 Child.Tag = Anim;
-                                Camera.Info[AIndex] = Anim;
+                                Camera.Info.Add(Anim);
                                 CamCount++;
                             }
                         }
@@ -423,15 +428,43 @@ namespace OgreEdit.Writers
                     writer.Write(Loop.MaxLoopNum);
                     writer.Write(new byte[16]);
                 }
-                else if (effect is Effects.LoopEnd LoopE)
+                else if (effect is Effects.NormalBranch LoopE)
                 {
                     writer.Write(new byte[28]);
                     writer.Write((uint)4);
                     writer.Write(new byte[12]);
                     writer.Write((uint)9);
                     writer.Write(new byte[12]);
-                    writer.Write(LoopE.Unknown);
+                    writer.Write(LoopE.ID);
                     writer.Write(new byte[16]);
+                }
+                else if (effect is Effects.Dead1 Dead)
+                {
+                    writer.Write(new byte[28]);
+                    writer.Write((uint)4);
+                    writer.Write(new byte[12]);
+                    writer.Write((uint)16);
+                    writer.Write(new byte[12]);
+                    writer.Write(Dead.ID);
+                    writer.Write(new byte[16]);
+                }
+                else if (effect is Effects.Dead2 Dead2)
+                {
+                    writer.Write(new byte[28]);
+                    writer.Write((uint)4);
+                    writer.Write(new byte[12]);
+                    writer.Write((uint)17);
+                    writer.Write(new byte[12]);
+                    writer.Write(Dead2.ID);
+                    writer.Write(new byte[16]);
+                }
+                else if (effect is Effects.Finish Finish)
+                {
+                    writer.Write(new byte[28]);
+                    writer.Write((uint)4);
+                    writer.Write(new byte[12]);
+                    writer.Write((uint)10);
+                    writer.Write(new byte[32]);
                 }
                 else if (effect is Effects.ButtonTiming Button)
                 {
@@ -439,7 +472,9 @@ namespace OgreEdit.Writers
                     writer.Write((uint)4);
                     writer.Write(new byte[12]);
                     writer.Write((uint)8);
-                    writer.Write(new byte[28]);
+                    writer.Write(new byte[12]);
+                    writer.Write(Button.ID);
+                    writer.Write(new byte[12]);
                     writer.Write(Button.Button);
                 }
                 else if (effect is Effects.ButtonSpam ButtonS)
@@ -447,10 +482,53 @@ namespace OgreEdit.Writers
                     writer.Write(new byte[28]);
                     writer.Write((uint)4);
                     writer.Write(new byte[12]);
-                    writer.Write((uint)8);
-                    writer.Write(new byte[28]);
+                    writer.Write((uint)7);
+                    writer.Write(new byte[12]);
+                    writer.Write(ButtonS.ID);
+                    writer.Write(new byte[12]);
                     writer.Write(ButtonS.Button);
                     writer.Write(ButtonS.Count);
+                }
+                else if (effect is Effects.CounterBranch CBranch)
+                {
+                    writer.Write(new byte[28]);
+                    writer.Write((uint)4);
+                    writer.Write(new byte[12]);
+                    writer.Write((uint)13);
+                    writer.Write(new byte[12]);
+                    writer.Write(CBranch.Unknown1);
+                    writer.Write(new byte[12]);
+                    writer.Write(CBranch.Unknown2);
+                }
+                else if (effect is Effects.CounterUp CUp)
+                {
+                    writer.Write(new byte[28]);
+                    writer.Write((uint)4);
+                    writer.Write(new byte[12]);
+                    writer.Write((uint)11);
+                    writer.Write(new byte[12]);
+                    writer.Write(CUp.Unknown);
+                    writer.Write(new byte[16]);
+                }
+                else if (effect is Effects.CounterReset CReset)
+                {
+                    writer.Write(new byte[28]);
+                    writer.Write((uint)4);
+                    writer.Write(new byte[12]);
+                    writer.Write((uint)12);
+                    writer.Write(new byte[12]);
+                    writer.Write(CReset.Unknown);
+                    writer.Write(new byte[16]);
+                }
+                else if (effect is Effects.ChangeFinishStatus CStatus)
+                {
+                    writer.Write(new byte[28]);
+                    writer.Write((uint)4);
+                    writer.Write(new byte[12]);
+                    writer.Write((uint)18);
+                    writer.Write(new byte[12]);
+                    writer.Write(CStatus.Status);
+                    writer.Write(new byte[16]);
                 }
                 else if (effect is Effects.UnknownEffect Unk)
                 {

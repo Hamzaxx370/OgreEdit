@@ -419,16 +419,7 @@ namespace OgreEdit.Writers
                     writer.Write(Loop.MaxLoopNum);
                     writer.Write(new byte[16]);
                 }
-                else if (effect is Effects.LoopEnd LoopE)
-                {
-                    writer.Write(new byte[28]);
-                    writer.Write((uint)4);
-                    writer.Write(new byte[12]);
-                    writer.Write((uint)9);
-                    writer.Write(new byte[12]);
-                    writer.Write(LoopE.Unknown);
-                    writer.Write(new byte[16]);
-                }
+                
                 else if (effect is Effects.ButtonTiming Button)
                 {
                     writer.Write(new byte[28]);
