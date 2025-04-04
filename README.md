@@ -7,6 +7,8 @@ A Yakuza 1 and 2 Heat Action (YAct) Editor Capable Of:
 
 (Horrible code btw)
 
+![Image](Images/OgreEdit.PNG)
+
 ## Credits
 
 Thanks to:  
@@ -23,7 +25,11 @@ Thanks to:
 
 -Import the YAct bin
 
+![Image](Images/OgreEdit3.png)
+
 -Edit, and add Effects(By highlighting a character/camera and then adding an effect)
+
+![Image](Images/OgreEdit2.png)
 
 -Highlight the YAct
 
