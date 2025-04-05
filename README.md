@@ -1,9 +1,9 @@
 ## OgreEdit  
 A Yakuza 1 and 2 Heat Action (YAct) Editor Capable Of:
   
--Creating Yakuza 1 and 2 Heat actions
+* Creating Yakuza 1 and 2 Heat actions
   
--Editing CSV (YActPlayData) files
+* Editing CSV (YActPlayData) files
 
 (Horrible code btw)
 
@@ -13,42 +13,42 @@ A Yakuza 1 and 2 Heat Action (YAct) Editor Capable Of:
 
 Thanks to:  
 
--[Jhrino](https://github.com/Fronkln) for helping with the YAct and CSV formats  
+* [Jhrino](https://github.com/Fronkln) for helping with the YAct and CSV formats  
 
 ## Usage:  
 
 ## Yakuza 1:
 
--Import a CSV
+* Import a CSV
 
--Highlight the desired YAct
+* Highlight the desired YAct
 
--Import the YAct bin
+* Import the YAct bin
 
 ![Image](Images/OgreEdit3.png)
 
--Edit, and add Effects(By highlighting a character/camera and then adding an effect)
+* Edit, and add Effects(By highlighting a character/camera and then adding an effect)
 
 ![Image](Images/OgreEdit2.png)
 
--Highlight the YAct
+* Highlight the YAct
 
--Export
+* Export
 
 ## Yakuza 2:
 
--Import a YAct
+* Import a YAct
 
--Edit, and add Effects(By highlighting a character/camera and then adding an effect)
+* Edit, and add Effects(By highlighting a character/camera and then adding an effect)
 
--Edit, and add HActEvents(Every name must be unique for each HActEvent)
+* Edit, and add HActEvents(Every name must be unique for each HActEvent)
 
--Select the YAct
+* Select the YAct
 
--Export
+* Export
 
--Import CSV
+* Import CSV
 
--Edit the HActEvents accordingly (Names must match inside YAct and CSV)
+* Edit the HActEvents accordingly (Names must match inside YAct and CSV)
 
--Export CSV
+* Export CSV
