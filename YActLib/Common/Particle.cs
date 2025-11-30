@@ -79,7 +79,7 @@
 
         public float LifeTime = 30.0f;
         public float InverseTimeScale = 0.0f;
-        public uint unk4 = 0;
+        public float UnkAngle = 0.0f;
 
         public int PoolSize = 8;
         public int VertexType = 2;
@@ -237,8 +237,8 @@
                     writer.Write(Emitter.ScaleYMax);
                     writer.Write(Emitter.ScaleXZMin);
                     writer.Write(Emitter.ScaleXZMax);
-                    writer.Write(Emitter.DirAngleMin);
-                    writer.Write(Emitter.DirAngleMax);
+                    writer.Write((int)(Emitter.DirAngleMin * 65536.0f / 360.0f));
+                    writer.Write((int)(Emitter.DirAngleMax * 65536.0f / 360.0f));
                     writer.Write(CurrEmitterPtr);
                     if (game == 0 && (Emitter.unk2 == null || Emitter.unk2.Count() != 168))
                     {
@@ -264,7 +264,7 @@
                     writer.Write(emitter.unk3);
                     writer.Write(emitter.LifeTime);
                     writer.Write(emitter.InverseTimeScale);
-                    writer.Write(emitter.unk4);
+                    writer.Write((int)(emitter.UnkAngle * 65536.0f / 360.0f));
                     writer.Write(emitter.PoolSize);
                     writer.Write(emitter.VertexType);
                     writer.Write(emitter.RenderState);
@@ -536,8 +536,8 @@
                     Emitter.ScaleYMax = reader.ReadSingle();
                     Emitter.ScaleXZMin = reader.ReadSingle();
                     Emitter.ScaleXZMax = reader.ReadSingle();
-                    Emitter.DirAngleMin = reader.ReadSingle();
-                    Emitter.DirAngleMax = reader.ReadSingle();
+                    Emitter.DirAngleMin = ((float)reader.ReadInt32() / 65536.0f) * 360.0f;
+                    Emitter.DirAngleMax = ((float)reader.ReadInt32() / 65536.0f) * 360.0f;
 
                     Emitter.EPointer = reader.ReadInt32();
                     if ( game == 1 )
@@ -559,7 +559,7 @@
                     Emitter.unk3 = reader.ReadUInt16();
                     Emitter.LifeTime = reader.ReadSingle();
                     Emitter.InverseTimeScale = reader.ReadSingle();
-                    Emitter.unk4 = reader.ReadUInt32();
+                    Emitter.UnkAngle = ((float)reader.ReadInt32() / 65536.0f) * 360.0f;
                     Emitter.PoolSize = reader.ReadInt32();
                     Emitter.VertexType = reader.ReadInt32();
                     Emitter.RenderState = reader.ReadInt32();
