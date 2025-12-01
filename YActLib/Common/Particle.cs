@@ -122,6 +122,7 @@
     {
         public static void WriteParticle(string path, int game, TreeNode ParticleNode)
         {
+            int el_cat = 0;
             int em_counter = 0;
             int el_count = 0;
             int emitter_size = 240;
@@ -149,6 +150,9 @@
 
                 foreach (TreeNode categoryNode in node.Nodes)
                 {
+                    if ( categoryNode.Nodes.Count == 0)
+                        continue;
+                    el_cat++; 
                     foreach (TreeNode elementNode in categoryNode.Nodes)
                     {
                         el_count++;
@@ -256,7 +260,7 @@
                 }
                 foreach (CParticleEmitter emitter in Particle.Emitters)
                 {
-                    writer.Write(emitter.ElementCount);
+                    writer.Write(((short)el_cat));
                     writer.Write(emitter.DelayMin);
                     writer.Write(emitter.DelayMax);
                     writer.Write(emitter.CycleLenMin);

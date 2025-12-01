@@ -204,19 +204,19 @@ namespace YActLib.UI
                     break;
                 case 3:
                     Main.CreateHeader("Base Rotation");
-                    Main.CreateInput("X", Element.MEFFELEMENT[0].ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[0] = Utils.TryParseFP(s); }, 15);
-                    Main.CreateInput("Y", Element.MEFFELEMENT[1].ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[1] = Utils.TryParseFP(s); }, 15);
-                    Main.CreateInput("Z", Element.MEFFELEMENT[2].ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[2] = Utils.TryParseFP(s); }, 15);
+                    Main.CreateInput("X", ((Element.MEFFELEMENT[0] / 65536.0f) * 360.0f).ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[0] = Utils.TryParseFP(s) * 65536.0f / 360.0f; }, 15);
+                    Main.CreateInput("Y", ((Element.MEFFELEMENT[1] / 65536.0f) * 360.0f).ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[1] = Utils.TryParseFP(s) * 65536.0f / 360.0f; }, 15);
+                    Main.CreateInput("Z", ((Element.MEFFELEMENT[2] / 65536.0f) * 360.0f).ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[2] = Utils.TryParseFP(s) * 65536.0f / 360.0f; }, 15);
                     
                     Main.CreateHeader("Rotation Change");
-                    Main.CreateInput("X", Element.MEFFELEMENT[4].ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[4] = Utils.TryParseFP(s); }, 15);
-                    Main.CreateInput("Y", Element.MEFFELEMENT[5].ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[5] = Utils.TryParseFP(s); }, 15);
-                    Main.CreateInput("Z", Element.MEFFELEMENT[6].ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[6] = Utils.TryParseFP(s); }, 15);
+                    Main.CreateInput("X", ((Element.MEFFELEMENT[4] / 65536.0f) * 360.0f).ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[4] = Utils.TryParseFP(s) * 65536.0f / 360.0f; }, 15);
+                    Main.CreateInput("Y", ((Element.MEFFELEMENT[5] / 65536.0f) * 360.0f).ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[5] = Utils.TryParseFP(s) * 65536.0f / 360.0f; }, 15);
+                    Main.CreateInput("Z", ((Element.MEFFELEMENT[6] / 65536.0f) * 360.0f).ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[6] = Utils.TryParseFP(s) * 65536.0f / 360.0f; }, 15);
                     
                     Main.CreateHeader("Rotation Change?");
-                    Main.CreateInput("X", Element.MEFFELEMENT[8].ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[8] = Utils.TryParseFP(s); }, 15);
-                    Main.CreateInput("Y", Element.MEFFELEMENT[9].ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[9] = Utils.TryParseFP(s); }, 15);
-                    Main.CreateInput("Z", Element.MEFFELEMENT[10].ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[10] = Utils.TryParseFP(s); }, 15);
+                    Main.CreateInput("X", ((Element.MEFFELEMENT[8] / 65536.0f) * 360.0f).ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[8] = Utils.TryParseFP(s) * 65536.0f / 360.0f; }, 15);
+                    Main.CreateInput("Y", ((Element.MEFFELEMENT[9] / 65536.0f) * 360.0f).ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[9] = Utils.TryParseFP(s) * 65536.0f / 360.0f; }, 15);
+                    Main.CreateInput("Z", ((Element.MEFFELEMENT[10] / 65536.0f) * 360.0f).ToString(), true, 1, delegate (string s) { Element.MEFFELEMENT[10] = Utils.TryParseFP(s) * 65536.0f / 360.0f; }, 15);
                     break;
             }
             Main.CreateRow();
