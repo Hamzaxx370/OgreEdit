@@ -122,7 +122,6 @@
     {
         public static void WriteParticle(string path, int game, TreeNode ParticleNode)
         {
-            int el_cat = 0;
             int em_counter = 0;
             int el_count = 0;
             int emitter_size = 240;
@@ -136,6 +135,7 @@
 
             foreach (TreeNode node in ParticleNode.Nodes)
             {
+                short el_cat = 0;
                 CParticleEmitter Emitter = node.Tag as CParticleEmitter;
 
                 Emitter.PosElements = new List<CParticleElement>();
@@ -195,6 +195,7 @@
                         }
                     }
                 }
+                Emitter.ElementCount = el_cat;
             }
 
             using (BinaryWriter writer = new BinaryWriter(File.Open(path, FileMode.Create)))
@@ -260,7 +261,7 @@
                 }
                 foreach (CParticleEmitter emitter in Particle.Emitters)
                 {
-                    writer.Write(((short)el_cat));
+                    writer.Write(emitter.ElementCount);
                     writer.Write(emitter.DelayMin);
                     writer.Write(emitter.DelayMax);
                     writer.Write(emitter.CycleLenMin);
